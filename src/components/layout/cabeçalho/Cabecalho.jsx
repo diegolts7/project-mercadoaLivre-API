@@ -1,20 +1,26 @@
 import styled from "styled-components";
 import Imagem from "../../../assets/logoMercadoLivre.png";
 import { Link } from "react-router-dom";
-import { CgShoppingCart } from "react-icons/cg";
+
 import ModalCarrinho from "../modalCarrinho/ModalCarrinho";
 import { useState } from "react";
 import Input from "../elementos/input/Input";
+import {
+  MdOutlineShoppingCart,
+  MdOutlineRemoveShoppingCart,
+} from "react-icons/md";
 
 const ConteinerCabecalho = styled.div`
+  position: fixed;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 10vh;
+  height: 11vh;
   width: 100%;
   background-color: #ffe600;
   color: #002f6c;
-  position: fixed;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 `;
 
 const DivLogo = styled.div`
@@ -87,8 +93,14 @@ const Cabecalho = () => {
       <DivLinks>
         <Input />
         <DivCarrinho>
-          <CgShoppingCart onClick={toggleOpenCarrinho} />
-          <span>2</span>
+          {isOpenShoppingCart === true ? (
+            <MdOutlineRemoveShoppingCart onClick={toggleOpenCarrinho} />
+          ) : (
+            <>
+              <MdOutlineShoppingCart onClick={toggleOpenCarrinho} />
+              <span>2</span>
+            </>
+          )}
         </DivCarrinho>
       </DivLinks>
       {isOpenShoppingCart && <ModalCarrinho />}

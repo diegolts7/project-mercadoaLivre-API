@@ -6,8 +6,10 @@ const DivFooter = styled.footer`
   justify-content: center;
   gap: 1rem;
   flex-direction: column;
-  background-color: #fffafa;
-  height: 12vh;
+  background-color: white;
+  height: 25vh;
+  margin-top: 15vh;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 `;
 
 const Footer = () => {
