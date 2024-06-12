@@ -4,19 +4,22 @@ import Home from "../components/pages/home/Home";
 import Search from "../components/pages/search/Search";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CarrinhoContext } from "../contexts/carrinhoContext/CarrinhoContext";
 
 function App() {
   return (
-    <Router>
-      <Cabecalho />
-      <div className="conteiner">
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/search/:busca" element={<Search />} />
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
+    <CarrinhoContext>
+      <Router>
+        <Cabecalho />
+        <div className="conteiner">
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/search/:busca" element={<Search />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
+    </CarrinhoContext>
   );
 }
 

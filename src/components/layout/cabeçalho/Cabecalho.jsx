@@ -3,12 +3,13 @@ import Imagem from "../../../assets/logoMercadoLivre.png";
 import { Link } from "react-router-dom";
 
 import ModalCarrinho from "../modalCarrinho/ModalCarrinho";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Input from "../elementos/input/Input";
 import {
   MdOutlineShoppingCart,
   MdOutlineRemoveShoppingCart,
 } from "react-icons/md";
+import { ContextCarrinho } from "../../../contexts/carrinhoContext/CarrinhoContext";
 
 const ConteinerCabecalho = styled.div`
   position: fixed;
@@ -79,10 +80,12 @@ const DivCarrinho = styled.div`
 `;
 
 const Cabecalho = () => {
+  const { carrinho } = useContext(ContextCarrinho);
   const [isOpenShoppingCart, setIsOpenShoppingCart] = useState(false);
   function toggleOpenCarrinho() {
     setIsOpenShoppingCart(isOpenShoppingCart === true ? false : true);
   }
+
   return (
     <ConteinerCabecalho>
       <DivLogo>
@@ -99,7 +102,7 @@ const Cabecalho = () => {
           ) : (
             <>
               <MdOutlineShoppingCart onClick={toggleOpenCarrinho} />
-              <span>2</span>
+              {carrinho.length > 0 && <span>{carrinho.length}</span>}
             </>
           )}
         </DivCarrinho>
