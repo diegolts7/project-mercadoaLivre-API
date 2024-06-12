@@ -40,6 +40,7 @@ const DivLogo = styled.div`
     }
     h1 {
       font-size: 28px;
+      font-weight: 650;
     }
   }
 `;
