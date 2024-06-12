@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CardProduto from "../cardProduto/CardProduto";
+import Loading from "../loading/Loading";
 
 const ConteinerCentral = styled.div`
   display: flex;
@@ -7,7 +8,6 @@ const ConteinerCentral = styled.div`
   max-width: ${(props) => (props.isGroup ? "110vh" : "140vh")};
   background-color: white;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
-  margin-top: 8vh;
   border-radius: 3px;
   gap: 2rem;
   padding: 10px;
@@ -25,18 +25,35 @@ const TituloConteinerCentral = styled.p`
   font-weight: 550;
 `;
 
-const ConteinerBusca = ({ titulo, lista, isGroup }) => {
+const ConteinerBusca = ({ titulo, lista, isGroup, isLoading }) => {
   1;
   return (
-    <ConteinerCentral isGroup={isGroup}>
-      <TituloConteinerCentral>{titulo}</TituloConteinerCentral>
-      <ConteinerLista>
-        {lista.length > 0 &&
-          lista.map((produto) => (
-            <CardProduto key={produto.id} produto={produto} isGroup={isGroup} />
-          ))}
-      </ConteinerLista>
-    </ConteinerCentral>
+    <>
+      {!isLoading ? (
+        <>
+          {lista.length > 0 ? (
+            <ConteinerCentral isGroup={isGroup}>
+              <TituloConteinerCentral>{titulo}</TituloConteinerCentral>
+              <ConteinerLista>
+                {lista.map((produto) => (
+                  <CardProduto
+                    key={produto.id}
+                    produto={produto}
+                    isGroup={isGroup}
+                  />
+                ))}
+              </ConteinerLista>
+            </ConteinerCentral>
+          ) : (
+            <p style={{ marginTop: "8vh", fontWeight: "500" }}>
+              Sem produtos encontrados
+            </p>
+          )}
+        </>
+      ) : (
+        <Loading />
+      )}
+    </>
   );
 };
 

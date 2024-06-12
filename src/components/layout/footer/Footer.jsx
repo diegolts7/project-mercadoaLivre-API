@@ -25,7 +25,7 @@ const ConteinerInfo = styled.div`
 
   &::after {
     content: "";
-    width: 2px;
+    width: 1.5px;
     height: 15vh;
     top: 0 auto;
     right: 0;

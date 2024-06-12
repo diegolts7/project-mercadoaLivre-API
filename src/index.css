@@ -14,6 +14,20 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 6px; /* Largura da barra de rolagem */
+}
+
+/* Estilizando a pista (fundo) da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: white; /* Cor de fundo da pista */
+}
+
+/* Estilizando o polegar (alça) da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background: gray; /* Cor do polegar */
+}
+
 a,
 button {
   cursor: pointer;

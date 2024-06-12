@@ -21,16 +21,17 @@ const DivCard = styled.div`
 
   img {
     width: ${(props) => (props.isGroup ? "135px" : "120px")};
+    height: ${(props) => (props.isGroup ? "135px" : "120px")};
     margin: ${(props) => (props.isGroup ? "0" : "0 auto")};
   }
   strong {
     font-size: 25px;
     margin-top: auto;
-    font-weight: 480;
+    font-weight: 450;
     margin-left: ${(props) => (props.isGroup ? "auto" : "none")};
   }
   p {
-    font-size: 13px;
+    font-size: ${(props) => (props.isGroup ? "16px" : "13px")};
   }
   svg {
     font-size: 25px;
