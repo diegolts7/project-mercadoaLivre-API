@@ -4,8 +4,7 @@ import CardProduto from "../cardProduto/CardProduto";
 const ConteinerCentral = styled.div`
   display: flex;
   flex-direction: column;
-  width: 140vh;
-  min-height: 30vh;
+  max-width: ${(props) => (props.isGroup ? "110vh" : "140vh")};
   background-color: white;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   margin-top: 8vh;
@@ -26,15 +25,15 @@ const TituloConteinerCentral = styled.p`
   font-weight: 550;
 `;
 
-const ConteinerBusca = ({ titulo, lista }) => {
+const ConteinerBusca = ({ titulo, lista, isGroup }) => {
   1;
   return (
-    <ConteinerCentral>
+    <ConteinerCentral isGroup={isGroup}>
       <TituloConteinerCentral>{titulo}</TituloConteinerCentral>
       <ConteinerLista>
         {lista.length > 0 &&
           lista.map((produto) => (
-            <CardProduto key={produto.id} produto={produto} />
+            <CardProduto key={produto.id} produto={produto} isGroup={isGroup} />
           ))}
       </ConteinerLista>
     </ConteinerCentral>

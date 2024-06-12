@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import RequestGET from "../../../functions/request/RequestGET";
+import ConteinerBusca from "../../layout/elementos/conteinerBusca/ConteinerBusca";
 
 const DivSearch = styled.div`
   margin-top: 11vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `;
 
 const Search = () => {
@@ -20,15 +25,11 @@ const Search = () => {
   }, [busca]);
   return (
     <DivSearch>
-      {resultsBusca.length > 0 ? (
-        <>
-          {resultsBusca.map((produto) => (
-            <p key={produto.id}>{produto.title}</p>
-          ))}
-        </>
-      ) : (
-        <p>Vazio</p>
-      )}
+      <ConteinerBusca
+        titulo={`Achados para: ${busca}`}
+        lista={resultsBusca}
+        isGroup={true}
+      />
     </DivSearch>
   );
 };

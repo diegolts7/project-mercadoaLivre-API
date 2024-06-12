@@ -3,11 +3,12 @@ import { MdAddShoppingCart } from "react-icons/md";
 
 const DivCard = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 25vh;
+  flex-direction: ${(props) => (props.isGroup ? "flex" : "column")};
+  width: ${(props) => (props.isGroup ? "100vh" : "25vh")};
   gap: 0.9rem;
   position: relative;
   cursor: pointer;
+  border-bottom: ${(props) => (props.isGroup ? "1px solid #e9e9e9" : "none")};
 
   &:hover {
     p {
@@ -19,13 +20,14 @@ const DivCard = styled.div`
   }
 
   img {
-    width: 120px;
-    margin: 0 auto;
+    width: ${(props) => (props.isGroup ? "135px" : "120px")};
+    margin: ${(props) => (props.isGroup ? "0" : "0 auto")};
   }
   strong {
     font-size: 25px;
     margin-top: auto;
     font-weight: 480;
+    margin-left: ${(props) => (props.isGroup ? "auto" : "none")};
   }
   p {
     font-size: 13px;
@@ -41,8 +43,8 @@ const DivCard = styled.div`
   }
 `;
 
-const CardProduto = ({ produto }) => {
-  const { thumbnail, price, currency_id, title } = produto;
+const CardProduto = ({ produto, isGroup }) => {
+  const { thumbnail, price, currency_id, title, permalink } = produto;
 
   const img = thumbnail.replace("I.jpg", "W.jpg");
 
@@ -50,11 +52,17 @@ const CardProduto = ({ produto }) => {
     style: "currency",
     currency: currency_id || "BRL",
   });
+
+  function abrirMercadoLivre(e) {
+    if (e.target.tagName !== "path") {
+      window.open(permalink, "_blank");
+    }
+  }
   return (
-    <DivCard>
+    <DivCard isGroup={isGroup} onClick={abrirMercadoLivre}>
       <MdAddShoppingCart />
       <img src={img} alt={title} />
-      <p>{title.slice(0, 50)}...</p>
+      <p>{isGroup ? title : title.slice(0, 50) + "..."}</p>
       <strong>{formatarPreco.format(price)}</strong>
     </DivCard>
   );

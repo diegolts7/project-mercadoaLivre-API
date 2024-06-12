@@ -22,7 +22,11 @@ const Home = () => {
   }, []);
   return (
     <DivHome>
-      <ConteinerBusca titulo="Produtos mais relevantes" lista={lista} />
+      <ConteinerBusca
+        titulo="Produtos mais relevantes"
+        lista={lista}
+        isGroup={false}
+      />
     </DivHome>
   );
 };

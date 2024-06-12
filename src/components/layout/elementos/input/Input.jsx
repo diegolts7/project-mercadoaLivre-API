@@ -38,6 +38,7 @@ const Input = () => {
     e.preventDefault();
     if (valorInput !== "") {
       navigate(`/search/${valorInput}`);
+      setValorInput("");
     }
   }
   function pegarValorInput(e) {

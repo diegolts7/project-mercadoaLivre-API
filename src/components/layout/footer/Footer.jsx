@@ -25,11 +25,11 @@ const ConteinerInfo = styled.div`
 
   &::after {
     content: "";
-    width: 0.5px;
-    height: 10vh;
+    width: 2px;
+    height: 15vh;
     top: 0 auto;
     right: 0;
-    background-color: gray;
+    background-color: #e9e9e9;
     position: absolute;
   }
   strong {
@@ -54,11 +54,11 @@ const ConteinerSocialMedia = styled.div`
   gap: 1rem;
   &::after {
     content: "";
-    width: 1px;
-    height: 10vh;
+    width: 1.5px;
+    height: 15vh;
     top: 0 auto;
     left: 0;
-    background-color: gray;
+    background-color: #e9e9e9;
     position: absolute;
   }
   strong {
