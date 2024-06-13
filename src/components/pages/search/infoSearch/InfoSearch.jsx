@@ -68,7 +68,12 @@ const InfoSearch = ({
       </DivAgrupar>
       <div>
         <p>
-          Achados para<strong> {busca.slice(0, 20)}</strong>
+          Achados para
+          <strong>
+            {" "}
+            {busca.slice(0, 35)}
+            {busca.length > 35 && "..."}
+          </strong>
         </p>
       </div>
 
