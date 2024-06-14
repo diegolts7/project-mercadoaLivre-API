@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
 import RequestGET from "../../../functions/request/RequestGET";
 import ConteinerBusca from "../../layout/elementos/conteinerBusca/ConteinerBusca";
@@ -22,6 +22,7 @@ const Search = () => {
   const [listaMenorPreco, setListaMenorPreco] = useState([]);
   const [listaPrincipal, setListaPrincipal] = useState([]);
   const [valueSelect, setValueSelect] = useState("");
+  const { pathname } = useLocation();
 
   function toggleIsGroup() {
     setIsGroup(isGroup ? false : true);
@@ -61,6 +62,10 @@ const Search = () => {
   useEffect(() => {
     setarListaPrincipal();
   }, [valueSelect]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <DivSearch>

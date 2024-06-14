@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ConteinerBusca from "../../layout/elementos/conteinerBusca/ConteinerBusca";
 import { useEffect, useState } from "react";
 import RequestGET from "../../../functions/request/RequestGET";
+import { useLocation } from "react-router-dom";
 
 const DivHome = styled.div`
   margin-top: 19vh;
@@ -11,6 +12,7 @@ const DivHome = styled.div`
 `;
 
 const Home = () => {
+  const { pathname } = useLocation();
   const [lista, setLista] = useState([]);
   const [isLoading, setIsLoading] = useState();
 
@@ -23,6 +25,10 @@ const Home = () => {
     setIsLoading(true);
     pegarDados();
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <DivHome>
       <ConteinerBusca

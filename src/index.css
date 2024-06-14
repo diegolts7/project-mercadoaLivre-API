@@ -15,7 +15,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 6px; /* Largura da barra de rolagem */
+  width: 3.5px; /* Largura da barra de rolagem */
 }
 
 /* Estilizando a pista (fundo) da barra de rolagem */
@@ -25,7 +25,7 @@
 
 /* Estilizando o polegar (alça) da barra de rolagem */
 ::-webkit-scrollbar-thumb {
-  background: gray; /* Cor do polegar */
+  background: #111; /* Cor do polegar */
 }
 
 a,

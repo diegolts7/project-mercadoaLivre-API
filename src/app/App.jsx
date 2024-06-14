@@ -3,8 +3,14 @@ import Footer from "../components/layout/footer/Footer";
 import Home from "../components/pages/home/Home";
 import Search from "../components/pages/search/Search";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { CarrinhoContext } from "../contexts/carrinhoContext/CarrinhoContext";
+import { useEffect } from "react";
 
 function App() {
   return (
