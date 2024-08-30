@@ -91,7 +91,7 @@ const Cabecalho = () => {
       <DivLogo>
         <img src={Imagem} />
         <Link to="/">
-          <h1>Contrabando livre</h1>
+          <h1>Mercado Livre</h1>
         </Link>
       </DivLogo>
       <DivLinks>
